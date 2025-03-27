@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Portfolio</title>
+
+    <!-- React & Babel CDN -->
+    <script src="https://unpkg.com/react@17/umd/react.development.js"></script>
+    <script src="https://unpkg.com/react-dom@17/umd/react-dom.development.js"></script>
+    <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            scroll-behavior: smooth;
+            transition: all 0.3s ease;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            background: #232390;
+            text-align: center;
+            color: #333;
+        }
+
+        .dark-mode {
+            background: #1e1e1e;
+            color: white;
+        }
+
+        /* Navbar */
+        .navbar {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: #2980b9;
+            color: rgb(82, 28, 28);
+            padding: 15px 0;
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            font-size: 18px;
+            font-weight: bold;
+            z-index: 1000;
+        }
+
+        .navbar a {
+            color: rgb(207, 187, 187);
+            text-decoration: none;
+            padding: 10px 15px;
+            border-radius: 8px;
+        }
+
+        .navbar a:hover {
+            background: rgba(255, 255, 255, 0.2);
+        }
+
+        /* Landing Page */
+        .hero {
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(135deg, #2980b9, #6dd5fa);
+            color: white;
+            padding: 20px;
+        }
+
+        .hero h1 {
+            font-size: 50px;
+            animation: fadeIn 1s ease-in-out;
+        }
+
+        .hero p {
+            font-size: 22px;
+            margin: 10px 0;
+        }
+
+        .hero button {
+            margin-top: 20px;
+            padding: 10px 20px;
+            font-size: 18px;
+            background: white;
+            color: #0b293d;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: 0.3s ease;
+        }
+
+        .hero button:hover {
+            background: #f4f4f4;
+        }
+
+        /* About Section */
+        .section {
+            padding: 50px 20px;
+        }
+
+        .profile-img {
+            border-radius: 50%;
+            width: 150px;
+            height: 150px;
+            border: 5px solid #2980b9;
+            margin-top: 20px;
+        }
+
+        /* Skills */
+        .skills ul {
+            list-style: none;
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+
+        .skills li {
+            background: #2980b9;
+            color: white;
+            padding: 10px 15px;
+            border-radius: 20px;
+            font-size: 18px;
+        }
+
+        /* Dark Mode Button */
+        .dark-mode-toggle {
+            position: fixed;
+            top: 15px;
+            right: 20px;
+            background: rgb(201, 96, 96);
+            color: #2980b9;
+            border: none;
+            padding: 10px 15px;
+            cursor: pointer;
+            border-radius: 8px;
+            font-size: 16px;
+            font-weight: bold;
+        }
+
+        .dark-mode .dark-mode-toggle {
+            background: #444;
+            color: white;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+    </style>
+</head>
+<body>
+    <div id="root"></div>
+
+    <script type="text/babel">
+        function Portfolio() {
+            const [darkMode, setDarkMode] = React.useState(false);
+
+            return (
+                <div className={darkMode ? "dark-mode" : ""}>
+                    {/* Navbar */}
+                    <div className="navbar">
+                        <a href="#about">About</a>
+                        <a href="#skills">Skills</a>
+                        <a href="#contact">Contact</a>
+                    </div>
+
+                    {/* Dark Mode Toggle */}
+                    <button className="dark-mode-toggle" onClick={() => setDarkMode(!darkMode)}>
+                        {darkMode ? "Light Mode 🌞" : "Dark Mode 🌙"}
+                    </button>
+
+                    {/* Hero Section */}
+                    <section className="hero">
+                        <h1>Hey, I'm Dhiyaneshwar 👋</h1>
+                        <p>Web Developer | Coder | Tech Enthusiast</p>
+                        <button onClick={() => window.location.href = "#about"}>Explore More</button>
+                    </section>
+
+                    {/* About Section */}
+                    <section id="about" className="section">
+                        <h2>About Me</h2>
+                        <img src="bb.jpeg" alt="Profile" className="profile-img" />
+                        <p>Hey, I'm Dhiyaneshwar! Passionate about coding, web development, and learning new technologies.</p>
+                    </section>
+
+                    {/* Skills Section */}
+                    <section id="skills" className="section skills">
+                        <h2>My Skills</h2>
+                        <ul>
+                            {["HTML", "CSS", "JavaScript", "React", "Java", "C"].map((skill, index) => (
+                                <li key={index}>{skill}</li>
+                            ))}
+                        </ul>
+                    </section>
+
+                    {/* Contact Section */}
+                    <section id="contact" className="section">
+                        <h2>Contact Me</h2>
+                        <p>📧 Email: dhiyaneshwar@gmail.com</p>
+                        <p>📱 Phone: +91 9876543210</p>
+                    </section>
+                </div>
+            );
+        }
+
+        ReactDOM.render(<Portfolio />, document.getElementById("root"));
+    </script>
+</body>
+</html>

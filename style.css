@@ -1,0 +1,54 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap');
+
+/* General Styles */
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: #f4f4f9;
+    text-align: center;
+    padding: 20px;
+    color: #333;
+}
+
+h1 {
+    font-size: 36px;
+    font-weight: 600;
+    color: #1a1a1b;
+}
+
+h2 {
+    font-size: 28px;
+    color: #0a0b0c;
+}
+
+p {
+    font-size: 18px;
+    color: #555;
+}
+
+/* Image Styling */
+img {
+    border-radius: 50%;
+    border: 5px solid #1b1e21;
+    margin: 20px 0;
+}
+
+/* Skills List */
+ul {
+    list-style: none;
+    padding: 0;
+}
+
+ul li {
+    display: inline-block;
+    background-color: #24282b;
+    color: white;
+    padding: 10px 15px;
+    margin: 5px;
+    border-radius: 20px;
+    font-size: 18px;
+    transition: 0.3s ease;
+}
+
+ul li:hover {
+    background-color: #6f0d48;
+}
